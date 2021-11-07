@@ -112,6 +112,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env.py
 flask_app/env.py 
 
 
