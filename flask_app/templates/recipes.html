@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body>
+    <nav class="d-flex justify-content-between align-items-center col-12">
+        <h1 class="text-center">Welcome {{the_user.first_name}}</h1>
+        <div class="d-flex col-4 justify-content-around">
+            <a href="/dashboard" class="btn btn-primary mt-2">Dashboard</a>
+            <a href="/logout " class="btn btn-primary mt-2">Logout</a>
+        </div>
+    </nav>
+    <div class="card col-10 mx-auto my-5 bg-dark text-light">
+        <div class="card-body">
+            <h2 class="card-title text-primary">{{recipe.name}} </h2>
+            <table class="table table-info">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Under 30 minutes</th>
+                        <th>Instructions</th>
+                        <th>Date Made</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{{recipe.description}}</td>
+                            <td>{% if recipe.under30 ==1 %}
+                                Yes
+                                {% else %}
+                                No
+                                {%endif%}
+                            </td>
+                            <td> {{recipe.instruction}}</td>
+                            <td>{{recipe.date_made.strftime("%b %d %Y")}}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
