@@ -7,7 +7,7 @@ from flask_app.models.recipe import Recipe
 
 @app.route("/recipe/new")
 def new_recipe():
-    if "user_id" not in session: #check if user is logged 
+    if "user_id" not in session: #check if user is logged in or not
         return redirect('/logout')
     data = {
         'id': session['user_id']
